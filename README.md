@@ -5,8 +5,7 @@
 
 ## 📌 全流程
 
-```mermaid
-flowchart TD
+```
   A[准备 CIF & 配置 config.yaml] --> B[初筛: screen_structures.py]
   B --> C[多铁启发式: multiferroic_screen.py]
   C --> D[生成 VASP 输入: submit_vasp.py (stage1..6)]
