@@ -1,4 +1,3 @@
-# Multiferroic-Pipeline
 
 高通量 **多铁材料计算流程**，涵盖从 **结构初筛 → VASP 批量计算 → 高精度精算 → 最终判定** 的全链条。
 
@@ -38,7 +37,7 @@ pbs:
 
 ```bash
 which /public/apps/vasp/vasp_std
-python -m scripts.check_potcar_db --cif-dir data/cifs_relaxed --potcar-dir /public/home/xsy/PAW_GGA_PW91
+python -m scripts.check_potcar_db --cif-dir /public/home/xsydata/cifs_relaxed --potcar-dir /public/home/xsy/PAW_GGA_PW91
 ```
 
 ---
@@ -46,7 +45,7 @@ python -m scripts.check_potcar_db --cif-dir data/cifs_relaxed --potcar-dir /publ
 ## 🔹 1) 初筛
 
 ```bash
-python -m scripts.screen_structures   --cif-dir data/cifs_relaxed   --out all_screen.csv   --limit 0
+python -m scripts.screen_structures   --cif-dir /public/home/xsydata/cifs_relaxed   --out all_screen.csv   --limit 0
 ```
 
 输出：`all_screen.csv`（formula, nsites, density…）
@@ -142,23 +141,5 @@ gen_0/stage7_refine/soc/
 
 ---
 
-## 📂 目录结构
 
-```
-data/cifs_relaxed/        # 输入 CIF
-scripts/                  # 全部 python 脚本
-work/vasp_runs/           # VASP 输入与输出
-logs/                     # 运行日志
-results/                  # 汇总结果
-config.yaml               # 配置文件
-README.md                 # 本说明
-```
 
----
-
-## ✨ 引用
-
-如使用本流程，请引用相关工作：
-- VASP (Kresse & Furthmüller, 1996)
-- spglib / pymatgen
-- 本项目 multiferroic-pipeline
