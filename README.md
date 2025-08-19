@@ -37,7 +37,7 @@ pbs:
 
 ```bash
 which /public/apps/vasp/vasp_std
-python -m scripts.check_potcar_db --cif-dir /public/home/xsydata/cifs_relaxed --potcar-dir /public/home/xsy/PAW_GGA_PW91
+python -m scripts.check_potcar_db --cif-dir /public/home/xsy/data/cifs_relaxed --potcar-dir /public/home/xsy/PAW_GGA_PW91
 ```
 
 ---
@@ -45,7 +45,7 @@ python -m scripts.check_potcar_db --cif-dir /public/home/xsydata/cifs_relaxed --
 ## 🔹 1) 初筛
 
 ```bash
-python -m scripts.screen_structures   --cif-dir /public/home/xsydata/cifs_relaxed   --out all_screen.csv   --limit 0
+python -m scripts.screen_structures   --cif-dir /public/home/xsy/data/cifs_relaxed   --out all_screen.csv   --limit 0
 ```
 
 输出：`all_screen.csv`（formula, nsites, density…）
@@ -55,7 +55,7 @@ python -m scripts.screen_structures   --cif-dir /public/home/xsydata/cifs_relaxe
 ## 🔹 2) 多铁启发式筛选
 
 ```bash
-python -m scripts.multiferroic_screen   --cif-dir data/cifs_relaxed   --out multiferroic_screen.csv   --merge-all-screen
+python -m scripts.multiferroic_screen   --cif-dir /public/home/xsy/data/cifs_relaxed   --out multiferroic_screen.csv   --merge-all-screen
 ```
 
 输出：
@@ -67,7 +67,7 @@ python -m scripts.multiferroic_screen   --cif-dir data/cifs_relaxed   --out mult
 ## 🔹 3) 生成 VASP 输入 (stage1..6)
 
 ```bash
-python -m scripts.submit_vasp   --cif-dir data/cifs_relaxed   --potcar-dir /public/home/xsy/PAW_GGA_PW91   --config config.yaml   --limit 0   --workdir work/vasp_runs
+python -m scripts.submit_vasp   --cif-dir /public/home/xsy/data/cifs_relaxed   --potcar-dir /public/home/xsy/PAW_GGA_PW91   --config config.yaml   --limit 0   --workdir work/vasp_runs
 ```
 
 生成目录：
